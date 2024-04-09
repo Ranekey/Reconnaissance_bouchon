@@ -1,4 +1,4 @@
-function img_seg = segmentons(dilat)
+function [img_seg,etiquettes_bouchon,pos_bouchon] = segmentons(dilat)
 
 taillexy=size(dilat);
 taillex=taillexy(1)-1;
@@ -81,6 +81,7 @@ disp(nnz(f))
 disp('objet(s)')
 disp('voici leur etiquette')
 etiquettes=(find(f));
+etiquettes_bouchon = etiquettes;
 
 %il faut maintenant trouver la position de objets. Pour chaque étiquette, on parcourt l'image en faisant la moyenne des coordonnées y et la moyenne des coordonnées x des pixels portant l'étiquette. On tombe donc sur le barycentre de l'objet!
 object_position=zeros(length(etiquettes),2);
@@ -106,4 +107,5 @@ object_position;
  coord=object_position(m,:);
  text(coord(2),coord(1), ['objet num.',num2str(m)])
  end
+ pos_bouchon = object_position;
 end
