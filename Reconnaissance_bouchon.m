@@ -30,6 +30,9 @@ imshow(img_dil2);title('image dilater')
 
 
 %Segmentation
-img_seg = segmentons(img_dil2);
+[img_seg,etiquettes,pos_bouchon] = segmentons(img_dil2);
 figure;
-imshow(img_seg);title('image segmenter')
+imshow(img_seg);title('image segmenter');
+
+etiquettes;
+pos_bouchon;
