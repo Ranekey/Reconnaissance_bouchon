@@ -6,6 +6,8 @@ imgresult = img;
 nblig = size(img,1);
 nbcol = size(img,2);
 
+
+%yo 
 % calcul du decalage pour se déplacer dans le filtre
 dec = (taille-1)/2;
 
