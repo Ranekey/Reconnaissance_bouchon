@@ -3,7 +3,7 @@ function [img_seg,etiquettes_bouchon,pos_bouchon] = segmentons(dilat)
 taillexy=size(dilat);
 taillex=taillexy(1)-1;
 tailley=taillexy(2)-1;
-dilat=255*dilat;
+
 
 
 %segmentation  partir de l'image dilatée, 1ere étape
