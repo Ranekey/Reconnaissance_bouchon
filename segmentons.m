@@ -13,7 +13,7 @@ for i=2:taillex
     for j=2:tailley
         if (dilat(i,j)==255)
             if ((segmented(i-1,j)==0)&&(segmented(i,j-1)==0))
-                etiquette=etiquette+1;
+                etiquette=etiquette+1
                 segmented(i,j)=etiquette;
                 else
                 if (min([segmented(i-1,j),segmented(i,j-1)])==0)
@@ -70,18 +70,22 @@ end
 figure(12)
 imagesc(segmented_final),title('segmented final'),colorbar;
 
+figure(13)
+imshow(segmented_final),title('segmented final gray')
+
 img_seg = segmented_final;
 
 % on utilise l'histogrammme pour avoir le nombre d'objets et leur étiquette
 for k=1:255
-f(k)=sum(sum(segmented_final == k));
+    f(k)=sum(sum(segmented_final == k));
+    
 end
 disp('il y a ')
 disp(nnz(f))
 disp('objet(s)')
 disp('voici leur etiquette')
-etiquettes=(find(f));
-etiquettes_bouchon = etiquettes;
+etiquettes=(find(f))
+etiquettes_bouchon = etiquettes
 
 %il faut maintenant trouver la position de objets. Pour chaque étiquette, on parcourt l'image en faisant la moyenne des coordonnées y et la moyenne des coordonnées x des pixels portant l'étiquette. On tombe donc sur le barycentre de l'objet!
 object_position=zeros(length(etiquettes),2);
@@ -96,16 +100,17 @@ sumi=0;sumj=0;effectif=0;
             end
         end
     end
+    
     object_position(m,:)=[sumi/effectif,sumj/effectif];
 end
 
 disp('voici les coordonnees des objets')
-object_position;
+object_position
 
- hold on
- for m=1:length(object_position(:,1))
- coord=object_position(m,:);
- text(coord(2),coord(1), ['objet num.',num2str(m)])
- end
+ %hold on
+ %for m=1:length(object_position(:,1))
+ %coord=object_position(m,:);
+ %text(coord(2),coord(1), ['objet num.',num2str(m)]);
+ %end
  pos_bouchon = object_position;
 end

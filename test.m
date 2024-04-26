@@ -1,5 +1,5 @@
 % Charger l'image
-image_originale = imread('feutre.jpg'); % Remplacez 'image.jpg' par le chemin de votre image
+img_final = tes('IMG_wassim.jpg'); % Remplacez 'image.jpg' par le chemin de votre image
 
 % Séparation des canaux de couleur
 canal_rouge = image_originale(:,:,1);
