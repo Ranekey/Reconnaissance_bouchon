@@ -42,3 +42,16 @@ img_id = Id_couleurs(img_seg,image_rgb_wassim,etiquettes,pos_bouchon);
 figure;
 imshow(img_id);
 
+
+
+% Nouvel ordre pour réorganiser les objets
+order = [1, 3, 4, 2];  % Le 4e devient le 1er, le 3e devient le 2e, le 1er devient le 3e, et le 2e devient le 4e
+
+% Réorganiser les objets selon le nouvel ordre
+new_image = tri_bouchons(image_rgb_wassim, img_seg, pos_bouchon, order);
+
+% Afficher la nouvelle image avec les objets réorganisés
+figure;
+imshow(new_image);
+
+
